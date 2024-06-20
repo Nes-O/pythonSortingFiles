@@ -1,0 +1,76 @@
+print("Try programiz.pro")
+l = [5,7,4,2,8]
+lis = []
+# Till the array ends I want to compare one element with the other starting with the first element, which is the concept of bubble sort.
+# But how will I take two numbers -->  Simple take ith element and take (i+1)th element. But the i th element should be the position, how will you get the position. Take the length
+t = len(l)
+print(t)
+# Have the length now have to iterate over the length because that will give the position and using the range function since int object is not iterable.
+for i in range (t-1):
+    print(i)
+    # With this I can get till the end of the list but cant put the break statement at the required place. Thinking about putting a if block when the pointers reach at the end of the list then break. 
+    #if (i == 4):
+        
+    #else:
+        #print('First num',l[i])
+        #print('Second num',l[i+1])
+        # Now with the logic of comparing and swapping the i th and i+1 th terms
+        #num1 = l[i]
+        #num2 = l[i+1]
+        #if  (num2 < num1):
+            #num1 = l[i+1]
+            #num2 = l[i]
+            
+        #print(lis)
+    #lis.append(num1)   
+# You wrote a bad code uptil here !!!!!!
+    swapped = False
+    for j in range(0, t-i-1):
+        print(j)
+        # traverse the array from 0 to n-i-1
+        # Swap if the element found is greater
+        # than the next element
+        if l[j] > l[j + 1]:
+            swapped = True
+            l[j], l[j + 1] = l[j + 1], l[j]
+            
+            
+    if not swapped:
+            # if we haven't needed to make a single swap, we
+            # can just exit the main loop.
+        break
+
+def bubbleSort(arr):
+    n = len(arr)
+    # optimize code, so if the array is already sorted, it doesn't need
+    # to go through the entire process
+    # Traverse through all array elements
+    for i in range(n-1):
+
+        # range(n) also work but outer loop will
+        # repeat one time more than needed.
+        # Last i elements are already in place
+        swapped = False
+        for j in range(0, n-i-1):
+
+            # traverse the array from 0 to n-i-1
+            # Swap if the element found is greater
+            # than the next element
+            if arr[j] > arr[j + 1]:
+                swapped = True
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+
+        if not swapped:
+            # if we haven't needed to make a single swap, we
+            # can just exit the main loop.
+            return
+
+
+# Driver code to test above
+arr = [5,7,4,2,8]
+
+bubbleSort(arr)
+
+print("Sorted array is:")
+for i in range(len(arr)):
+    print("% d" % arr[i], end=" ")
